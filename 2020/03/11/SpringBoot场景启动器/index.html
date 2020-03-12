@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html  lang="ch">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.2.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>SpringBoot场景启动器 - CodePanda的博客</title>
+
+
+    <meta name="description" content="当我们使用SpringBoot搭建一个web项目的时候，并不需要我们单独导入spring-webmvc，spring-web的相关包和版本，仅仅一个spring-boot-starter-web启动器就解决了，这到底是为什么呢？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot场景启动器">
+<meta property="og:url" content="http://yoursite.com/2020/03/11/SpringBoot%E5%9C%BA%E6%99%AF%E5%90%AF%E5%8A%A8%E5%99%A8/">
+<meta property="og:site_name" content="CodePanda的博客">
+<meta property="og:description" content="当我们使用SpringBoot搭建一个web项目的时候，并不需要我们单独导入spring-webmvc，spring-web的相关包和版本，仅仅一个spring-boot-starter-web启动器就解决了，这到底是为什么呢？">
+<meta property="og:locale" content="ch">
+<meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta property="article:published_time" content="2020-03-11T08:46:25.000Z">
+<meta property="article:modified_time" content="2020-03-11T08:46:25.000Z">
+<meta property="article:author" content="CodePanda">
+<meta property="article:tag" content="SpringBoot">
+<meta property="article:tag" content="starter">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/panda.ico">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-dark.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    
+    
+    <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?aea9ea9ca708c7cad0682d6687a0aecf";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logoTwo.jpg" alt="SpringBoot场景启动器" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">主页</a>
+                
+                <a class="navbar-item"
+                href="/archives">归档</a>
+                
+                <a class="navbar-item"
+                href="/categories">分类</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/about">关于我</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-7-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-03-11T08:46:25.000Z">2020-03-11</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/SpringBoot/">SpringBoot</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 minutes 读完 (大约 286 个字)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                SpringBoot场景启动器
+            
+        </h1>
+        <div class="content">
+            <p>当我们使用SpringBoot搭建一个web项目的时候，并不需要我们单独导入spring-webmvc，spring-web的相关包和版本，仅仅一个spring-boot-starter-web启动器就解决了，这到底是为什么呢？</p>
+<a id="more"></a>
+
+<p>首先新建一个SpringBoot的web项目，打开pom.xml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;parent&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-parent&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.0.6.RELEASE&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;parent&gt;</span><br><span class="line">&lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-web&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;&#x2F;dependencies&gt;</span><br></pre></td></tr></table></figure>
+
+<p>发现所有的SpringBoot的项目都会依赖于spring-boot-starter-parent这个父项目，ctrl+左键进入，再进入spring-boot-dependencies</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;parent&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-dependencies&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.0.6.RELEASE&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;relativePath&gt;..&#x2F;..&#x2F;spring-boot-dependencies&lt;&#x2F;relativePath&gt;</span><br><span class="line">&lt;&#x2F;parent&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br></pre></td><td class="code"><pre><span class="line">&lt;properties&gt;</span><br><span class="line">        &lt;activemq.version&gt;5.15.6&lt;&#x2F;activemq.version&gt;</span><br><span class="line">        &lt;antlr2.version&gt;2.7.7&lt;&#x2F;antlr2.version&gt;</span><br><span class="line">        &lt;appengine-sdk.version&gt;1.9.66&lt;&#x2F;appengine-sdk.version&gt;</span><br><span class="line">        &lt;artemis.version&gt;2.4.0&lt;&#x2F;artemis.version&gt;</span><br><span class="line">        &lt;aspectj.version&gt;1.8.13&lt;&#x2F;aspectj.version&gt;</span><br><span class="line">        &lt;assertj.version&gt;3.9.1&lt;&#x2F;assertj.version&gt;</span><br><span class="line">        &lt;atomikos.version&gt;4.0.6&lt;&#x2F;atomikos.version&gt;</span><br><span class="line">        &lt;bitronix.version&gt;2.1.4&lt;&#x2F;bitronix.version&gt;</span><br><span class="line">        &lt;build-helper-maven-plugin.version&gt;3.0.0&lt;&#x2F;build-helper-maven-plugin.version&gt;</span><br><span class="line">        &lt;byte-buddy.version&gt;1.7.11&lt;&#x2F;byte-buddy.version&gt;</span><br><span class="line">        &lt;caffeine.version&gt;2.6.2&lt;&#x2F;caffeine.version&gt;</span><br><span class="line">        &lt;cassandra-driver.version&gt;3.4.0&lt;&#x2F;cassandra-driver.version&gt;</span><br><span class="line">        &lt;classmate.version&gt;1.3.4&lt;&#x2F;classmate.version&gt;</span><br><span class="line">        &lt;commons-codec.version&gt;1.11&lt;&#x2F;commons-codec.version&gt;</span><br><span class="line">        &lt;commons-dbcp2.version&gt;2.2.0&lt;&#x2F;commons-dbcp2.version&gt;</span><br><span class="line">        &lt;commons-lang3.version&gt;3.7&lt;&#x2F;commons-lang3.version&gt;</span><br><span class="line">        &lt;commons-pool.version&gt;1.6&lt;&#x2F;commons-pool.version&gt;</span><br><span class="line">        &lt;commons-pool2.version&gt;2.5.0&lt;&#x2F;commons-pool2.version&gt;</span><br><span class="line">        &lt;couchbase-cache-client.version&gt;2.1.0&lt;&#x2F;couchbase-cache-client.version&gt;</span><br><span class="line">        &lt;couchbase-client.version&gt;2.5.9&lt;&#x2F;couchbase-client.version&gt;</span><br><span class="line">        &lt;derby.version&gt;10.14.2.0&lt;&#x2F;derby.version&gt;</span><br><span class="line">        &lt;dom4j.version&gt;1.6.1&lt;&#x2F;dom4j.version&gt;</span><br><span class="line">        &lt;dropwizard-metrics.version&gt;3.2.6&lt;&#x2F;dropwizard-metrics.version&gt;</span><br><span class="line">        &lt;ehcache.version&gt;2.10.5&lt;&#x2F;ehcache.version&gt;</span><br><span class="line">        &lt;ehcache3.version&gt;3.5.3&lt;&#x2F;ehcache3.version&gt;</span><br><span class="line">        &lt;elasticsearch.version&gt;5.6.12&lt;&#x2F;elasticsearch.version&gt;</span><br><span class="line">        &lt;embedded-mongo.version&gt;2.0.3&lt;&#x2F;embedded-mongo.version&gt;</span><br><span class="line">        &lt;exec-maven-plugin.version&gt;1.5.0&lt;&#x2F;exec-maven-plugin.version&gt;</span><br><span class="line">        &lt;flatten-maven-plugin.version&gt;1.0.1&lt;&#x2F;flatten-maven-plugin.version&gt;</span><br><span class="line">        &lt;flyway.version&gt;5.0.7&lt;&#x2F;flyway.version&gt;</span><br><span class="line">        &lt;freemarker.version&gt;2.3.28&lt;&#x2F;freemarker.version&gt;</span><br><span class="line">        &lt;git-commit-id-plugin.version&gt;2.2.5&lt;&#x2F;git-commit-id-plugin.version&gt;</span><br><span class="line">        &lt;glassfish-el.version&gt;3.0.0&lt;&#x2F;glassfish-el.version&gt;</span><br><span class="line">        &lt;groovy.version&gt;2.4.15&lt;&#x2F;groovy.version&gt;</span><br><span class="line">        &lt;gson.version&gt;2.8.5&lt;&#x2F;gson.version&gt;</span><br><span class="line">        &lt;h2.version&gt;1.4.197&lt;&#x2F;h2.version&gt;</span><br><span class="line">        &lt;hamcrest.version&gt;1.3&lt;&#x2F;hamcrest.version&gt;</span><br><span class="line">        &lt;hazelcast.version&gt;3.9.4&lt;&#x2F;hazelcast.version&gt;</span><br><span class="line">        &lt;hazelcast-hibernate5.version&gt;1.2.3&lt;&#x2F;hazelcast-hibernate5.version&gt;</span><br><span class="line">        &lt;hibernate.version&gt;5.2.17.Final&lt;&#x2F;hibernate.version&gt;</span><br><span class="line">        &lt;hibernate-jpa-2.1-api.version&gt;1.0.2.Final&lt;&#x2F;hibernate-jpa-2.1-api.version&gt;</span><br><span class="line">        &lt;hibernate-validator.version&gt;6.0.13.Final&lt;&#x2F;hibernate-validator.version&gt;</span><br><span class="line">        &lt;hikaricp.version&gt;2.7.9&lt;&#x2F;hikaricp.version&gt;</span><br><span class="line">        &lt;hsqldb.version&gt;2.4.1&lt;&#x2F;hsqldb.version&gt;</span><br><span class="line">        &lt;htmlunit.version&gt;2.29&lt;&#x2F;htmlunit.version&gt;</span><br><span class="line">        &lt;httpasyncclient.version&gt;4.1.4&lt;&#x2F;httpasyncclient.version&gt;</span><br><span class="line">        &lt;httpclient.version&gt;4.5.6&lt;&#x2F;httpclient.version&gt;</span><br><span class="line">        &lt;httpcore.version&gt;4.4.10&lt;&#x2F;httpcore.version&gt;</span><br><span class="line">        &lt;infinispan.version&gt;9.1.7.Final&lt;&#x2F;infinispan.version&gt;</span><br><span class="line">        &lt;influxdb-java.version&gt;2.9&lt;&#x2F;influxdb-java.version&gt;</span><br><span class="line">        &lt;jackson.version&gt;2.9.7&lt;&#x2F;jackson.version&gt;</span><br><span class="line">        &lt;janino.version&gt;3.0.10&lt;&#x2F;janino.version&gt;</span><br><span class="line">        &lt;javax-annotation.version&gt;1.3.2&lt;&#x2F;javax-annotation.version&gt;</span><br><span class="line">        &lt;javax-cache.version&gt;1.1.0&lt;&#x2F;javax-cache.version&gt;</span><br><span class="line">        &lt;javax-jaxb.version&gt;2.3.1&lt;&#x2F;javax-jaxb.version&gt;</span><br><span class="line">        &lt;javax-jms.version&gt;2.0.1&lt;&#x2F;javax-jms.version&gt;</span><br><span class="line">        &lt;javax-json.version&gt;1.1.3&lt;&#x2F;javax-json.version&gt;</span><br><span class="line">        &lt;javax-jsonb.version&gt;1.0&lt;&#x2F;javax-jsonb.version&gt;</span><br><span class="line">        &lt;javax-mail.version&gt;1.6.2&lt;&#x2F;javax-mail.version&gt;</span><br><span class="line">        &lt;javax-money.version&gt;1.0.3&lt;&#x2F;javax-money.version&gt;</span><br><span class="line">        &lt;javax-transaction.version&gt;1.2&lt;&#x2F;javax-transaction.version&gt;</span><br><span class="line">        &lt;javax-validation.version&gt;2.0.1.Final&lt;&#x2F;javax-validation.version&gt;</span><br><span class="line">        &lt;jaxen.version&gt;1.1.6&lt;&#x2F;jaxen.version&gt;</span><br><span class="line">        &lt;jaybird.version&gt;3.0.5&lt;&#x2F;jaybird.version&gt;</span><br><span class="line">        &lt;jboss-logging.version&gt;3.3.2.Final&lt;&#x2F;jboss-logging.version&gt;</span><br><span class="line">        &lt;jboss-transaction-spi.version&gt;7.6.0.Final&lt;&#x2F;jboss-transaction-spi.version&gt;</span><br><span class="line">        &lt;jdom2.version&gt;2.0.6&lt;&#x2F;jdom2.version&gt;</span><br><span class="line">        &lt;jedis.version&gt;2.9.0&lt;&#x2F;jedis.version&gt;</span><br><span class="line">        &lt;jersey.version&gt;2.26&lt;&#x2F;jersey.version&gt;</span><br><span class="line">        &lt;jest.version&gt;5.3.4&lt;&#x2F;jest.version&gt;</span><br><span class="line">        &lt;jetty.version&gt;9.4.12.v20180830&lt;&#x2F;jetty.version&gt;</span><br><span class="line">        &lt;jetty-el.version&gt;8.5.33&lt;&#x2F;jetty-el.version&gt;</span><br><span class="line">        &lt;jetty-jsp.version&gt;2.2.0.v201112011158&lt;&#x2F;jetty-jsp.version&gt;</span><br><span class="line">        &lt;jmustache.version&gt;1.14&lt;&#x2F;jmustache.version&gt;</span><br><span class="line">        &lt;jna.version&gt;4.5.2&lt;&#x2F;jna.version&gt;</span><br><span class="line">        &lt;joda-time.version&gt;2.9.9&lt;&#x2F;joda-time.version&gt;</span><br><span class="line">        &lt;johnzon.version&gt;1.1.10&lt;&#x2F;johnzon.version&gt;</span><br><span class="line">        &lt;johnzon-jsonb.version&gt;1.1.10&lt;&#x2F;johnzon-jsonb.version&gt;</span><br><span class="line">        &lt;jolokia.version&gt;1.5.0&lt;&#x2F;jolokia.version&gt;</span><br><span class="line">        &lt;jooq.version&gt;3.10.8&lt;&#x2F;jooq.version&gt;</span><br><span class="line">        &lt;jsonassert.version&gt;1.5.0&lt;&#x2F;jsonassert.version&gt;</span><br><span class="line">        &lt;json-path.version&gt;2.4.0&lt;&#x2F;json-path.version&gt;</span><br><span class="line">        &lt;jstl.version&gt;1.2&lt;&#x2F;jstl.version&gt;</span><br><span class="line">        &lt;jtds.version&gt;1.3.1&lt;&#x2F;jtds.version&gt;</span><br><span class="line">        &lt;junit.version&gt;4.12&lt;&#x2F;junit.version&gt;</span><br><span class="line">        &lt;junit-jupiter.version&gt;5.1.1&lt;&#x2F;junit-jupiter.version&gt;</span><br><span class="line">        &lt;junit-platform.version&gt;1.1.0&lt;&#x2F;junit-platform.version&gt;</span><br><span class="line">        &lt;kafka.version&gt;1.0.2&lt;&#x2F;kafka.version&gt;</span><br><span class="line">        &lt;kotlin.version&gt;1.2.51&lt;&#x2F;kotlin.version&gt;</span><br><span class="line">        &lt;lettuce.version&gt;5.0.5.RELEASE&lt;&#x2F;lettuce.version&gt;</span><br><span class="line">        &lt;liquibase.version&gt;3.5.5&lt;&#x2F;liquibase.version&gt;</span><br><span class="line">        &lt;log4j2.version&gt;2.10.0&lt;&#x2F;log4j2.version&gt;</span><br><span class="line">        &lt;logback.version&gt;1.2.3&lt;&#x2F;logback.version&gt;</span><br><span class="line">        &lt;lombok.version&gt;1.16.22&lt;&#x2F;lombok.version&gt;</span><br><span class="line">        &lt;mariadb.version&gt;2.2.6&lt;&#x2F;mariadb.version&gt;</span><br><span class="line">        &lt;maven-antrun-plugin.version&gt;1.8&lt;&#x2F;maven-antrun-plugin.version&gt;</span><br><span class="line">        &lt;maven-assembly-plugin.version&gt;3.1.0&lt;&#x2F;maven-assembly-plugin.version&gt;</span><br><span class="line">        &lt;maven-clean-plugin.version&gt;3.0.0&lt;&#x2F;maven-clean-plugin.version&gt;</span><br><span class="line">        &lt;maven-compiler-plugin.version&gt;3.7.0&lt;&#x2F;maven-compiler-plugin.version&gt;</span><br><span class="line">        &lt;maven-dependency-plugin.version&gt;3.0.2&lt;&#x2F;maven-dependency-plugin.version&gt;</span><br><span class="line">        &lt;maven-deploy-plugin.version&gt;2.8.2&lt;&#x2F;maven-deploy-plugin.version&gt;</span><br><span class="line">        &lt;maven-eclipse-plugin.version&gt;2.10&lt;&#x2F;maven-eclipse-plugin.version&gt;</span><br><span class="line">        &lt;maven-enforcer-plugin.version&gt;3.0.0-M2&lt;&#x2F;maven-enforcer-plugin.version&gt;</span><br><span class="line">        &lt;maven-failsafe-plugin.version&gt;2.21.0&lt;&#x2F;maven-failsafe-plugin.version&gt;</span><br><span class="line">        &lt;maven-help-plugin.version&gt;2.2&lt;&#x2F;maven-help-plugin.version&gt;</span><br><span class="line">        &lt;maven-install-plugin.version&gt;2.5.2&lt;&#x2F;maven-install-plugin.version&gt;</span><br><span class="line">        &lt;maven-invoker-plugin.version&gt;3.1.0&lt;&#x2F;maven-invoker-plugin.version&gt;</span><br><span class="line">        &lt;maven-jar-plugin.version&gt;3.0.2&lt;&#x2F;maven-jar-plugin.version&gt;</span><br><span class="line">        &lt;maven-javadoc-plugin.version&gt;3.0.1&lt;&#x2F;maven-javadoc-plugin.version&gt;</span><br><span class="line">        &lt;maven-resources-plugin.version&gt;3.0.2&lt;&#x2F;maven-resources-plugin.version&gt;</span><br><span class="line">        &lt;maven-shade-plugin.version&gt;2.4.3&lt;&#x2F;maven-shade-plugin.version&gt;</span><br><span class="line">        &lt;maven-site-plugin.version&gt;3.6&lt;&#x2F;maven-site-plugin.version&gt;</span><br><span class="line">        &lt;maven-source-plugin.version&gt;3.0.1&lt;&#x2F;maven-source-plugin.version&gt;</span><br><span class="line">        &lt;maven-surefire-plugin.version&gt;2.21.0&lt;&#x2F;maven-surefire-plugin.version&gt;</span><br><span class="line">        &lt;maven-war-plugin.version&gt;3.1.0&lt;&#x2F;maven-war-plugin.version&gt;</span><br><span class="line">        ......</span><br><span class="line">    &lt;&#x2F;properties&gt;</span><br></pre></td></tr></table></figure>
+<p>发现原来spring-boot-denpendencies才是管理所有依赖版本号的地方，类似于版本管理中心，<strong>所以我们导入的依赖默认是不需要版本的</strong></p>
+<hr>
+<h2 id="以spring-boot-starter-web启动器为例"><a href="#以spring-boot-starter-web启动器为例" class="headerlink" title="以spring-boot-starter-web启动器为例"></a>以spring-boot-starter-web启动器为例</h2><p>进入spring-boot-starter-web，可以发现spring-webmvc，spring-web等开发web项目必须的包，而版本号则交给spring-boot-denpendencies统一管理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">	&lt;dependency&gt;</span><br><span class="line">		&lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">		&lt;artifactId&gt;spring-boot-starter&lt;&#x2F;artifactId&gt;</span><br><span class="line">	&lt;&#x2F;dependency&gt;</span><br><span class="line">	&lt;dependency&gt;</span><br><span class="line">		&lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">		&lt;artifactId&gt;spring-boot-starter-tomcat&lt;&#x2F;artifactId&gt;</span><br><span class="line">	&lt;&#x2F;dependency&gt;</span><br><span class="line">	&lt;dependency&gt;</span><br><span class="line">		&lt;groupId&gt;org.hibernate&lt;&#x2F;groupId&gt;</span><br><span class="line">		&lt;artifactId&gt;hibernate-validator&lt;&#x2F;artifactId&gt;</span><br><span class="line">	&lt;&#x2F;dependency&gt;</span><br><span class="line">	&lt;dependency&gt;</span><br><span class="line">		&lt;groupId&gt;com.fasterxml.jackson.core&lt;&#x2F;groupId&gt;</span><br><span class="line">		&lt;artifactId&gt;jackson-databind&lt;&#x2F;artifactId&gt;</span><br><span class="line">	&lt;&#x2F;dependency&gt;</span><br><span class="line">	&lt;dependency&gt;</span><br><span class="line">		&lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;</span><br><span class="line">		&lt;artifactId&gt;spring-web&lt;&#x2F;artifactId&gt;</span><br><span class="line">	&lt;&#x2F;dependency&gt;</span><br><span class="line">	&lt;dependency&gt;</span><br><span class="line">		&lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;</span><br><span class="line">		&lt;artifactId&gt;spring-webmvc&lt;&#x2F;artifactId&gt;</span><br><span class="line">	&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;&#x2F;dependencies&gt;</span><br></pre></td></tr></table></figure>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a>, <a class="has-link-grey -link" href="/tags/starter/" rel="tag">starter</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <div class="social-share"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
+<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/03/11/SpringBoot%E6%95%B4%E5%90%88JDBC/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">SpringBoot整合JDBC</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/03/11/SpringBoot%E4%B8%AD-SpringBootApplication%E6%B3%A8%E8%A7%A3%E8%A7%A3%E6%9E%90/">
+                <span class="level-item">SpringBoot中@SpringBootApplication注解解析</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="lv-container" data-id="city" data-uid="MTAyMC80ODk2NS8yNTQ1OQ==">
+    <script type="text/javascript">
+        (function(d, s) {
+            var j, e = d.getElementsByTagName(s)[0];
+
+            if (typeof LivereTower === 'function') { return; }
+
+            j = d.createElement(s);
+            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+            j.async = true;
+
+            e.parentNode.insertBefore(j, e);
+        })(document, 'script');
+    </script>
+    <noscript> Please activate JavaScript for write a comment in LiveRe</noscript>
+</div>
+
+    </div>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="" src="/images/touXiang.jpeg" alt="程序熊猫">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        程序熊猫
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Developer
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>湖北·武汉</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <a href="/archives">
+                        <p class="title has-text-weight-normal">
+                            15
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <a href="/categories">
+                        <p class="title has-text-weight-normal">
+                            2
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <a href="/tags">
+                        <p class="title has-text-weight-normal">
+                            16
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://www.jianshu.com/u/b78d6b4f70c6" target="_blank" rel="noopener">
+                关注我</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="简书" href="https://www.jianshu.com/u/b78d6b4f70c6">
+                
+                <i class="fa fa-heart"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Github" href="https://github.com/CodePandaes">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="微信" href="https://facebook.com">
+                
+                <i class="fab fa-weixin"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-11T11:46:25.000Z">2020-03-11</time></div>
+                    <a href="/2020/03/11/SpringBoot%E6%95%B4%E5%90%88ehcache/" class="title has-link-black-ter is-size-6 has-text-weight-normal">SpringBoot整合ehcache</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/SpringBoot/">SpringBoot</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-11T10:46:25.000Z">2020-03-11</time></div>
+                    <a href="/2020/03/11/SpringBoot%E8%87%AA%E5%AE%9A%E4%B9%89starter/" class="title has-link-black-ter is-size-6 has-text-weight-normal">SpringBoot自定义starter</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/SpringBoot/">SpringBoot</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-11T09:46:25.000Z">2020-03-11</time></div>
+                    <a href="/2020/03/11/SpringBoot%E6%95%B4%E5%90%88JDBC/" class="title has-link-black-ter is-size-6 has-text-weight-normal">SpringBoot整合JDBC</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/SpringBoot/">SpringBoot</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-11T08:46:25.000Z">2020-03-11</time></div>
+                    <a href="/2020/03/11/SpringBoot%E5%9C%BA%E6%99%AF%E5%90%AF%E5%8A%A8%E5%99%A8/" class="title has-link-black-ter is-size-6 has-text-weight-normal">SpringBoot场景启动器</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/SpringBoot/">SpringBoot</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-11T07:46:25.000Z">2020-03-11</time></div>
+                    <a href="/2020/03/11/SpringBoot%E4%B8%AD-SpringBootApplication%E6%B3%A8%E8%A7%A3%E8%A7%A3%E6%9E%90/" class="title has-link-black-ter is-size-6 has-text-weight-normal">SpringBoot中@SpringBootApplication注解解析</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/SpringBoot/">SpringBoot</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Blog/">
+                        <span class="tag">Blog</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Druid/">
+                        <span class="tag">Druid</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/JDBC/">
+                        <span class="tag">JDBC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/JPA/">
+                        <span class="tag">JPA</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Mybatis/">
+                        <span class="tag">Mybatis</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/SpringBoot/">
+                        <span class="tag">SpringBoot</span>
+                        <span class="tag is-grey">12</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/blog/">
+                        <span class="tag">blog</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ehcache/">
+                        <span class="tag">ehcache</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/hexo/">
+                        <span class="tag">hexo</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/hikari/">
+                        <span class="tag">hikari</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/icarus/">
+                        <span class="tag">icarus</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/starter/">
+                        <span class="tag">starter</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/thymeleaf/">
+                        <span class="tag">thymeleaf</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%8F%92%E4%BB%B6/">
+                        <span class="tag">插件</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%B3%A8%E8%A7%A3/">
+                        <span class="tag">注解</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%83%AD%E9%83%A8%E7%BD%B2/">
+                        <span class="tag">热部署</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/SpringBoot/">
+            <span class="level-start">
+                <span class="level-item">SpringBoot</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">12</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/hexo/">
+            <span class="level-start">
+                <span class="level-item">hexo</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/Blog/" style="font-size: 13.33px;">Blog</a> <a href="/tags/Druid/" style="font-size: 10px;">Druid</a> <a href="/tags/JDBC/" style="font-size: 10px;">JDBC</a> <a href="/tags/JPA/" style="font-size: 10px;">JPA</a> <a href="/tags/Mybatis/" style="font-size: 10px;">Mybatis</a> <a href="/tags/SpringBoot/" style="font-size: 20px;">SpringBoot</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/ehcache/" style="font-size: 10px;">ehcache</a> <a href="/tags/hexo/" style="font-size: 16.67px;">hexo</a> <a href="/tags/hikari/" style="font-size: 10px;">hikari</a> <a href="/tags/icarus/" style="font-size: 10px;">icarus</a> <a href="/tags/starter/" style="font-size: 13.33px;">starter</a> <a href="/tags/thymeleaf/" style="font-size: 10px;">thymeleaf</a> <a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 10px;">插件</a> <a href="/tags/%E6%B3%A8%E8%A7%A3/" style="font-size: 10px;">注解</a> <a href="/tags/%E7%83%AD%E9%83%A8%E7%BD%B2/" style="font-size: 10px;">热部署</a>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">15</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            友情链接
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="http://www.ruanyifeng.com/blog" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">阮一峰的博客</span>
+                    </span>
+                    
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="http://www.liaoxuefeng.com" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">廖雪峰的博客</span>
+                    </span>
+                    
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Blog/">
+                        <span class="tag">Blog</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Druid/">
+                        <span class="tag">Druid</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/JDBC/">
+                        <span class="tag">JDBC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/JPA/">
+                        <span class="tag">JPA</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Mybatis/">
+                        <span class="tag">Mybatis</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/SpringBoot/">
+                        <span class="tag">SpringBoot</span>
+                        <span class="tag is-grey">12</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/blog/">
+                        <span class="tag">blog</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ehcache/">
+                        <span class="tag">ehcache</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/hexo/">
+                        <span class="tag">hexo</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/hikari/">
+                        <span class="tag">hikari</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/icarus/">
+                        <span class="tag">icarus</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/starter/">
+                        <span class="tag">starter</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/thymeleaf/">
+                        <span class="tag">thymeleaf</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%8F%92%E4%BB%B6/">
+                        <span class="tag">插件</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%B3%A8%E8%A7%A3/">
+                        <span class="tag">注解</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%83%AD%E9%83%A8%E7%BD%B2/">
+                        <span class="tag">热部署</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/SpringBoot/">
+            <span class="level-start">
+                <span class="level-item">SpringBoot</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">12</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/hexo/">
+            <span class="level-start">
+                <span class="level-item">hexo</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/Blog/" style="font-size: 13.33px;">Blog</a> <a href="/tags/Druid/" style="font-size: 10px;">Druid</a> <a href="/tags/JDBC/" style="font-size: 10px;">JDBC</a> <a href="/tags/JPA/" style="font-size: 10px;">JPA</a> <a href="/tags/Mybatis/" style="font-size: 10px;">Mybatis</a> <a href="/tags/SpringBoot/" style="font-size: 20px;">SpringBoot</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/ehcache/" style="font-size: 10px;">ehcache</a> <a href="/tags/hexo/" style="font-size: 16.67px;">hexo</a> <a href="/tags/hikari/" style="font-size: 10px;">hikari</a> <a href="/tags/icarus/" style="font-size: 10px;">icarus</a> <a href="/tags/starter/" style="font-size: 13.33px;">starter</a> <a href="/tags/thymeleaf/" style="font-size: 10px;">thymeleaf</a> <a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 10px;">插件</a> <a href="/tags/%E6%B3%A8%E8%A7%A3/" style="font-size: 10px;">注解</a> <a href="/tags/%E7%83%AD%E9%83%A8%E7%BD%B2/" style="font-size: 10px;">热部署</a>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">15</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            友情链接
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="http://www.ruanyifeng.com/blog" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">阮一峰的博客</span>
+                    </span>
+                    
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="http://www.liaoxuefeng.com" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">廖雪峰的博客</span>
+                    </span>
+                    
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?aea9ea9ca708c7cad0682d6687a0aecf";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logoTwo.jpg" alt="SpringBoot场景启动器" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 CodePanda&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("ch");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'http://yoursite.com',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
