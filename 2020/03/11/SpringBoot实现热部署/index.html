@@ -148,7 +148,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    3 minutes 读完 (大约 494 个字)
+                    3 minutes 读完 (大约 436 个字)
                 </span>
                 
                 
@@ -173,21 +173,21 @@ var _hmt = _hmt || [];
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ol>
 <li>IDEA中默认是不自动编译的，左上角打开setting设置Build project automatically自动编译功能</li>
 </ol>
-<p><img src="https://upload-images.jianshu.io/upload_images/22062715-1dac85249c822fff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200309112958.png" alt=""></p>
 <ol start="2">
 <li>ctrl + shift + alt + /,选择Registry,勾上 Compiler autoMake allow when app running</li>
 </ol>
-<p><img src="https://upload-images.jianshu.io/upload_images/22062715-f650a4bfbdc3c951.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200309113405.png" alt=""></p>
 <ol start="3">
 <li>打开pom.xml引入依赖<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--实现工程热部署，修改代码不需要重启服务器--&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-devtools&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;!--依赖不会传递，该项目依赖devtools；之后依赖此项目的项目如果想要使用devtools，需要重新引入--&gt;</span><br><span class="line">            &lt;optional&gt;true&lt;&#x2F;optional&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;build&gt;</span><br><span class="line">        &lt;plugins&gt;</span><br><span class="line">            &lt;plugin&gt;</span><br><span class="line">                &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;spring-boot-maven-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">                &lt;configuration&gt;</span><br><span class="line">                    &lt;fork&gt;true&lt;&#x2F;fork&gt; &lt;!-- 如果没有该配置，devtools不会生效 --&gt;</span><br><span class="line">                &lt;&#x2F;configuration&gt;</span><br><span class="line">            &lt;&#x2F;plugin&gt;</span><br><span class="line">        &lt;&#x2F;plugins&gt;</span><br><span class="line">    &lt;&#x2F;build&gt;</span><br></pre></td></tr></table></figure></li>
 <li>启动项目，控制台确实显示devtools在监听classpath路径下的文件变动</li>
 </ol>
-<p><img src="https://upload-images.jianshu.io/upload_images/22062715-35455849278b8262.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200309114618.png" alt=""></p>
 <ol start="5">
 <li>修改UserController下的代码，发现console确实重启了项目，实现了热部署</li>
 </ol>
-<p><img src="https://upload-images.jianshu.io/upload_images/22062715-381d89812c080d57.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/22062715-60589787ab4634a6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200309114936.png" alt=""></p>
+<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200309115101.png" alt=""></p>
 <ol start="6">
 <li><p>devtools也可以单独监控某个文件夹下的文件，如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">devtools:</span><br><span class="line">  restart:</span><br><span class="line">    additional-paths: src&#x2F;main&#x2F;resources&#x2F;templates&#x2F;user</span><br></pre></td></tr></table></figure>

@@ -148,7 +148,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    5 minutes 读完 (大约 700 个字)
+                    4 minutes 读完 (大约 640 个字)
                 </span>
                 
                 
@@ -177,18 +177,25 @@ var _hmt = _hmt || [];
 <li>与SpringBoot完美整合，SpringBoot提供了Thymeleaf的默认配置，并且为Thymeleaf设置了视图解析器，我们可以像以前操作jsp一样来操作Thymeleaf。代码几乎没有任何区别，就是在模板语法上有区别。<h2 id="和SpringBoot整合"><a href="#和SpringBoot整合" class="headerlink" title="和SpringBoot整合"></a>和SpringBoot整合</h2></li>
 </ul>
 <ol>
-<li>新建SpringBoot项目（可参考我的上一篇博客<a href="https://www.jianshu.com/p/84b4459060a1">SpringBoot初体验</a>），打开pom.xml，添加thymeleaf依赖<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">        &lt;!--web容器--&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-starter-web&lt;&#x2F;artifactId&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!--前端模板thymeleaf依赖--&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;&#x2F;artifactId&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;&#x2F;dependencies&gt;</span><br></pre></td></tr></table></figure></li>
-<li>打开配置文件application,yml（application.properties），关闭thymeleaf缓存</li>
+<li><p>新建SpringBoot项目（可参考我的上一篇博客<a href="https://www.jianshu.com/p/84b4459060a1">SpringBoot初体验</a>），打开pom.xml，添加thymeleaf依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">        &lt;!--web容器--&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-starter-web&lt;&#x2F;artifactId&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!--前端模板thymeleaf依赖--&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;&#x2F;artifactId&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;&#x2F;dependencies&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>打开配置文件application,yml（application.properties），关闭thymeleaf缓存</p>
+<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200308173720.png" alt=""></p>
+</li>
+<li><p>新建HelloWorldController类，返回hello页面</p>
+<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200308173946.png" alt=""></p>
+</li>
+<li><p>templates目录下新建hello.html</p>
+<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200308174310.png" alt=""></p>
+</li>
+<li><p>打开SpringBootThymeleafApplication类启动项目</p>
+</li>
 </ol>
-<p><img src="https://upload-images.jianshu.io/upload_images/22062715-ab4e7ab48ef09734.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<ol start="3">
-<li>新建HelloWorldController类，返回hello页面</li>
+<p>​       <img src="/images/QQ%E6%88%AA%E5%9B%BE20200308174443.png" alt=""></p>
+<p>​       <img src="/images/QQ%E6%88%AA%E5%9B%BE20200308174800.png" alt=""></p>
+<ol start="6">
+<li>浏览器中输入localhost:8080/hello，访问成功</li>
 </ol>
-<p><img src="https://upload-images.jianshu.io/upload_images/22062715-53d594bb0ad76499.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>4. templates目录下新建hello.html</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/22062715-72654fd0e68adf46.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>5.打开SpringBootThymeleafApplication类启动项目</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/22062715-455345aac48a3952.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>6. 浏览器中输入localhost:8080/hello，访问成功</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/22062715-e0c1619ce457e6d6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 
         </div>
         
