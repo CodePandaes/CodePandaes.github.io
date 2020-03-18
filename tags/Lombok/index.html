@@ -7,22 +7,19 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>SpringBoot整合JPA - CodePanda的博客</title>
+<title>标签: Lombok - CodePanda的博客</title>
 
 
-    <meta name="description" content="SpringBoot整合JPA的详细教程">
-<meta property="og:type" content="article">
-<meta property="og:title" content="SpringBoot整合JPA">
-<meta property="og:url" content="http://yoursite.com/2020/03/11/SpringBoot%E6%95%B4%E5%90%88JPA/">
+    <meta name="description" content="hexo">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CodePanda的博客">
+<meta property="og:url" content="http://yoursite.com/tags/Lombok/">
 <meta property="og:site_name" content="CodePanda的博客">
-<meta property="og:description" content="SpringBoot整合JPA的详细教程">
+<meta property="og:description" content="hexo">
 <meta property="og:locale" content="ch">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
-<meta property="article:published_time" content="2020-03-11T03:46:25.000Z">
-<meta property="article:modified_time" content="2020-03-11T03:46:25.000Z">
 <meta property="article:author" content="CodePanda">
-<meta property="article:tag" content="SpringBoot">
-<meta property="article:tag" content="JPA">
+<meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
@@ -90,7 +87,7 @@ var _hmt = _hmt || [];
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logoTwo.jpg" alt="SpringBoot整合JPA" height="28">
+                <img src="/images/logoTwo.jpg" alt="CodePanda的博客" height="28">
             
             </a>
         </div>
@@ -131,14 +128,25 @@ var _hmt = _hmt || [];
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-7-widescreen has-order-2 column-main">
+                <div class="column is-8-tablet is-8-desktop is-7-widescreen has-order-2 column-main"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/tags">标签</a></li>
+            <li class="is-active"><a href="#" aria-current="page">Lombok</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
+
+    
 <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-03-11T03:46:25.000Z">2020-03-11</time>
+                <time class="level-item has-text-grey" datetime="2020-03-18T03:46:25.000Z">2020-03-18</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/SpringBoot/">SpringBoot</a>
@@ -148,140 +156,42 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    6 minutes 读完 (大约 835 个字)
+                    6 minutes 读完 (大约 837 个字)
                 </span>
                 
-                
-                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
-                    <i class="far fa-eye"></i>
-                    <span id="busuanzi_value_page_pv">0</span>次访问
-                </span>
                 
             </div>
         </div>
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                SpringBoot整合JPA
+                <a class="has-link-black-ter" href="/2020/03/18/SpringBoot%E6%95%B4%E5%90%88Lombok%E5%8F%8A%E4%BD%BF%E7%94%A8/">SpringBoot整合Lombok及使用</a>
             
         </h1>
         <div class="content">
-            <p>SpringBoot整合JPA的详细教程</p>
-<a id="more"></a>
-
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>我们都知道一个概念ORM（Object Relational Mapping）对象关系映射，ORM的作用是在操作数据库之前，先把数据表与实体类关联起来，然后通过实体类的对象操作（增删改查）数据库表。所以，ORM是一个实现使用对象操作数据库的设计思想！！！ 通过这句话，我们知道JPA的作用就是通过对象操作数据库的，不用编写sql语句。</p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200308204927.png" alt=""></p>
-<p>JPA和Hibernate、toplink的关系就像JDBC和mysql、Oracle驱动的关系一样，JPA是规范，Hibernate除了是ORM框架之外，它还是一种JPA的实现。而Spring Data JPA其实就是基于ORM框架封装了的Hibernate，可使得开发者用极简的代码即可实现对数据库的访问和操作，它提供了包括增删改查等常用功能，可以极大提高开发效率。</p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200308205816.png" alt=""></p>
-<hr>
-<h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><ol>
-<li>新建一个web项目（可以参考我的上一篇博客<a href="https://www.jianshu.com/p/84b4459060a1">SpringBoot初体验</a>）打开pom.xml引入依赖<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">    &lt;!--只要和数据库有链接就会有JDBC的依赖包，所以导入了JPA就有了JDBC的依赖包不需要再导入了--&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;&#x2F;dependency&gt;</span><br><span class="line">    &lt;!--引入web依赖包--&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-web&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;&#x2F;dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--引入mysql依赖包--&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;mysql&lt;&#x2F;groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;mysql-connector-java&lt;&#x2F;artifactId&gt;</span><br><span class="line">        &lt;scope&gt;runtime&lt;&#x2F;scope&gt;</span><br><span class="line">    &lt;&#x2F;dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;dependencies&gt;</span><br></pre></td></tr></table></figure>
-打开配置文件application.yml，添加数据库配置<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  datasource:</span><br><span class="line">    url: jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;jpa?serverTimezone&#x3D;UTC</span><br><span class="line">    username: root</span><br><span class="line">    password: root</span><br><span class="line">    driver-class-name: com.mysql.jdbc.Driver</span><br><span class="line">#能配置哪些属性在JpaProperties里面有绑定，参照即可</span><br><span class="line">  jpa:</span><br><span class="line">    hibernate:</span><br><span class="line">      #更新或者创建数据表结构</span><br><span class="line">      ddl-auto: update</span><br><span class="line">      #控制台显示sql</span><br><span class="line">    show-sql: true</span><br></pre></td></tr></table></figure>
-添加实体类User<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;使用JPA注解配置映射关系</span><br><span class="line">@Entity  &#x2F;&#x2F;告诉JPA这是一个实体类(和数据表映射的类)</span><br><span class="line">@Table(name &#x3D; &quot;tb2_user&quot;) &#x2F;&#x2F;@Table 来制定和那个数据表对应；若省略则对应小写的user</span><br><span class="line">public class User &#123;</span><br><span class="line">    @Id &#x2F;&#x2F;这是一个主键</span><br><span class="line">    @GeneratedValue(strategy &#x3D; GenerationType.IDENTITY)&#x2F;&#x2F;自增</span><br><span class="line">    private Integer id;</span><br><span class="line"></span><br><span class="line">    @Column(name &#x3D; &quot;last_name&quot;, length &#x3D; 50) &#x2F;&#x2F;这是和数据表对应的一个列，大小50</span><br><span class="line">    private String lastName;</span><br><span class="line"></span><br><span class="line">    @Column  &#x2F;&#x2F;省略：默认列名就是属性名</span><br><span class="line">    private String email;</span><br><span class="line"></span><br><span class="line">    public Integer getId() &#123;</span><br><span class="line">        return id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setId(Integer id) &#123;</span><br><span class="line">        this.id &#x3D; id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String getLastName() &#123;</span><br><span class="line">        return lastName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setLastName(String lastName) &#123;</span><br><span class="line">        this.lastName &#x3D; lastName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String getEmail() &#123;</span><br><span class="line">        return email;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setEmail(String email) &#123;</span><br><span class="line">        this.email &#x3D; email;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-添加接口类UserRepository继承JpaRepository<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;继承JpaRepository&lt;User, Integer&gt; 完成对数据库的操作 &lt;实体类类名， 实体类主键的数据类型&gt;</span><br><span class="line">public interface UserRepository extends JpaRepository&lt;User, Integer&gt; &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-添加Controller层UserController<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">@RestController</span><br><span class="line">public class Usercontroller &#123;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;不需要添加@Bean注入容器， 因为UserRepository本身就是 JPARepository</span><br><span class="line">    @Autowired</span><br><span class="line">    UserRepository userRepository;</span><br><span class="line"></span><br><span class="line">    @GetMapping(&quot;&#x2F;user&#x2F;&#123;id&#125;&quot;)</span><br><span class="line">    public User findUserById(@PathVariable(&quot;id&quot;) Integer id) &#123;</span><br><span class="line">        return userRepository.findById(id).orElse(null);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @GetMapping(&quot;&#x2F;user&quot;)</span><br><span class="line">    public User insertUser(User user) &#123;</span><br><span class="line">        User user1 &#x3D; userRepository.save(user);</span><br><span class="line">        return user1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-新建数据库jpa</li>
-</ol>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200308213613.png" alt=""><br>启动项目会自动生成表tb2_user</p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200308213939.png" alt=""></p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200308213746.png" alt=""></p>
-<p>浏览器输入localhost:8080/user?lastName=zhangsan 添加User对象成功，并查看数据库表</p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200308214204.png" alt=""></p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200308214218.png" alt=""></p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200308215016.png" alt=""></p>
-<p>最后浏览器输入localhost:8080/user/1 得到json对象，测试成功</p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200308214538.png" alt=""></p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200308214613.png" alt=""></p>
-
+            <p>Lombok项目是一个Java库，它会自动插入您的编辑器和构建工具中，从而为您的Java增光添彩。永远不要再编写另一个getter或equals方法，带有一个注释的类将具有功能全面的生成器，自动执行日志记录变量等等。</p>
         </div>
         
-        <div class="level is-size-7 is-uppercase">
+        
+        <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/JPA/" rel="tag">JPA</a>, <a class="has-link-grey -link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a>
+                <a class="button is-size-7 is-light" href="/2020/03/18/SpringBoot%E6%95%B4%E5%90%88Lombok%E5%8F%8A%E4%BD%BF%E7%94%A8/#more">阅读更多</a>
                 </div>
             </div>
         </div>
         
         
-        
-        <div class="social-share"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
-<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
-        
     </div>
 </div>
 
 
 
-<div class="card">
-    <div class="card-content">
-        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
-        <div class="buttons is-centered">
-            
-                
-<a class="button is-success donate">
-    <span class="icon is-small">
-        <i class="fab fa-weixin"></i>
-    </span>
-    <span>微信</span>
-    <div class="qrcode"><img src="/" alt="微信"></div>
-</a>
-
-                
-        </div>
-    </div>
-</div>
 
 
 
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/03/11/SpringBoot%E5%AE%9E%E7%8E%B0%E7%83%AD%E9%83%A8%E7%BD%B2/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">SpringBoot实现热部署</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/03/11/SpringBoot%E6%95%B4%E5%90%88hikari/">
-                <span class="level-item">SpringBoot整合hikari</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
 
 
-
-<div class="card">
-    <div class="card-content">
-        <h3 class="title is-5 has-text-weight-normal">评论</h3>
-        
-<div id="lv-container" data-id="city" data-uid="MTAyMC80ODk2NS8yNTQ1OQ==">
-    <script type="text/javascript">
-        (function(d, s) {
-            var j, e = d.getElementsByTagName(s)[0];
-
-            if (typeof LivereTower === 'function') { return; }
-
-            j = d.createElement(s);
-            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-            j.async = true;
-
-            e.parentNode.insertBefore(j, e);
-        })(document, 'script');
-    </script>
-    <noscript> Please activate JavaScript for write a comment in LiveRe</noscript>
-</div>
-
-    </div>
-</div>
 </div>
                 
 
@@ -972,7 +882,7 @@ var _hmt = _hmt || [];
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logoTwo.jpg" alt="SpringBoot整合JPA" height="28">
+                    <img src="/images/logoTwo.jpg" alt="CodePanda的博客" height="28">
                 
                 </a>
                 <p class="is-size-7">
