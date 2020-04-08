@@ -148,7 +148,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    6 minutes 读完 (大约 846 个字)
+                    6 minutes 读完 (大约 862 个字)
                 </span>
                 
                 
@@ -198,11 +198,11 @@ var _hmt = _hmt || [];
 <p>@AutoConfigurationPackage：自动配置包<br>@Import({AutoConfigurationImportSelector.class})：它会把项目里面所有需要导入的组件以全类名的方式返回，将这些组件添加到容器中。而且会给容器中注入非常多的自动配置类，导入并配置好当前项目中所需要的组件。<br>这是如何实现的呢？进入AutoConfigurationImportSelector.class找到selectImports（）方法里面的getCandidateConfigurations（）方法</p>
 <p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200309215246.png" alt=""></p>
 <p>然后进入getCandidateConfigurations方法找到loadFactoryNames方法，再进入loadFactoryNames方法找到loadSpringFactories（），里面有这段代码<strong>classLoader.getResources(“META-INF/spring.factories”)</strong>，表示去META-INF/spring.factories中寻找需要加载的自动配置类（xxxAutoConfiguration）</p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200309215844.png" alt=""></p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200309220000.png" alt=""></p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200309220027.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408124911.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408124956.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408125005.png" alt=""></p>
 <p>可以看到spring.factories中有很多以xxxAutoConfiguration命名的配置类<br>包括CacheAutoConfiguration和RabbitAutoConfiguration</p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200309220952.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408125018.png" alt=""></p>
 
         </div>
         

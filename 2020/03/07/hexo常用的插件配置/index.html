@@ -149,7 +149,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    4 minutes 读完 (大约 565 个字)
+                    4 minutes 读完 (大约 630 个字)
                 </span>
                 
                 
@@ -172,45 +172,46 @@ var _hmt = _hmt || [];
 
 <h2 id="来必力"><a href="#来必力" class="headerlink" title="来必力"></a>来必力</h2><ol>
 <li><p>先去<a href="https://www.livere.com/" title="" target="">来必力官网</a>注册Livere账号，然后选择City免费版本，点击安装，在右上角管理页面中设置你的来必力名称和网站地址，生成安装代码，获取data-uid</p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200307170126.png" alt=""></p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200307171705.png" alt=""></p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200307171837.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408103815.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408103824.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408103836.png" alt=""></p>
 </li>
 <li><p>复制data-uid，打开主题icarus的配置文件_config.yml，找到comment评论插件设置type和uid，完成后执行命令hexo clean（清除缓存文件），然后执行hexo g（生成静态文件） 和hexo s （启动本地预览）,效果如下</p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200307172806.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408103910.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408104029.png" alt=""></p>
 </li>
 <li><p>回到来必力开启邮件提醒和设置评论登录平台</p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200307173114.png" alt=""></p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200307173141.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408104202.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408104117.png" alt=""></p>
 </li>
 </ol>
 <hr>
 <h2 id="百度统计"><a href="#百度统计" class="headerlink" title="百度统计"></a>百度统计</h2><ol>
 <li><p>进入<a href="https://tongji.baidu.com/web/30005265/welcome/login" title="" target="">百度统计官网</a>注册账号，登录控制台添加自己的博客地址，然后复制统计代码和hm.js后面的id</p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200307181601.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408104914.png" alt=""></p>
 </li>
 <li><p>找到icarus配置文件_config.yml中的baidu-analytics下的tracking_id属性，把hm.js后面的id粘贴过去，再找到主题中对应的footer.ejs或其他主题的footer模板，再把统计代码复制到footer.ejs中，达到一处安装，全站皆有的效果，完成后执行命令hexo clean，hexo g和hexo s，最后hexo d部署到远端</p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200307182555.png" alt=""></p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200307182641.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408105035.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408105043.png" alt=""></p>
 </li>
 <li><p>检查代码是否安装成功</p>
 <ul>
 <li><p>打开代码安装自动检查是否成功</p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200307182839.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408105338.png" alt=""></p>
 </li>
 <li><p>或者直接打开基础报告查看是否有访问数据，有则说明成功</p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200307182940.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408105353.png" alt=""></p>
 </li>
 <li><p>或者打开你的博客，F12点击Network，然后F5刷新看到hm.js加载则说明安装成功</p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200307183033.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408105405.png" alt=""></p>
 </li>
 </ul>
 </li>
 </ol>
 <hr>
 <h2 id="bdshare分享插件"><a href="#bdshare分享插件" class="headerlink" title="bdshare分享插件"></a>bdshare分享插件</h2><p>打开icarus主题配置文件_config.yml找到share，设置type为bdshare，刷新即生效，或者选择其他插件如：share.js，addtoany等，效果如下</p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200307184043.png" alt=""></p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200307184623.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408105429.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408105440.png" alt=""></p>
 
         </div>
         

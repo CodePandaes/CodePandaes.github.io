@@ -148,7 +148,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    6 minutes 读完 (大约 835 个字)
+                    6 minutes 读完 (大约 875 个字)
                 </span>
                 
                 
@@ -170,9 +170,9 @@ var _hmt = _hmt || [];
 <a id="more"></a>
 
 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>我们都知道一个概念ORM（Object Relational Mapping）对象关系映射，ORM的作用是在操作数据库之前，先把数据表与实体类关联起来，然后通过实体类的对象操作（增删改查）数据库表。所以，ORM是一个实现使用对象操作数据库的设计思想！！！ 通过这句话，我们知道JPA的作用就是通过对象操作数据库的，不用编写sql语句。</p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200308204927.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408112127.png" alt=""></p>
 <p>JPA和Hibernate、toplink的关系就像JDBC和mysql、Oracle驱动的关系一样，JPA是规范，Hibernate除了是ORM框架之外，它还是一种JPA的实现。而Spring Data JPA其实就是基于ORM框架封装了的Hibernate，可使得开发者用极简的代码即可实现对数据库的访问和操作，它提供了包括增删改查等常用功能，可以极大提高开发效率。</p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200308205816.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408112135.png" alt=""></p>
 <hr>
 <h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><ol>
 <li>新建一个web项目（可以参考我的上一篇博客<a href="https://www.jianshu.com/p/84b4459060a1">SpringBoot初体验</a>）打开pom.xml引入依赖<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">    &lt;!--只要和数据库有链接就会有JDBC的依赖包，所以导入了JPA就有了JDBC的依赖包不需要再导入了--&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;&#x2F;dependency&gt;</span><br><span class="line">    &lt;!--引入web依赖包--&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-web&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;&#x2F;dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--引入mysql依赖包--&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;mysql&lt;&#x2F;groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;mysql-connector-java&lt;&#x2F;artifactId&gt;</span><br><span class="line">        &lt;scope&gt;runtime&lt;&#x2F;scope&gt;</span><br><span class="line">    &lt;&#x2F;dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;dependencies&gt;</span><br></pre></td></tr></table></figure>
@@ -182,16 +182,16 @@ var _hmt = _hmt || [];
 添加Controller层UserController<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">@RestController</span><br><span class="line">public class Usercontroller &#123;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;不需要添加@Bean注入容器， 因为UserRepository本身就是 JPARepository</span><br><span class="line">    @Autowired</span><br><span class="line">    UserRepository userRepository;</span><br><span class="line"></span><br><span class="line">    @GetMapping(&quot;&#x2F;user&#x2F;&#123;id&#125;&quot;)</span><br><span class="line">    public User findUserById(@PathVariable(&quot;id&quot;) Integer id) &#123;</span><br><span class="line">        return userRepository.findById(id).orElse(null);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @GetMapping(&quot;&#x2F;user&quot;)</span><br><span class="line">    public User insertUser(User user) &#123;</span><br><span class="line">        User user1 &#x3D; userRepository.save(user);</span><br><span class="line">        return user1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 新建数据库jpa</li>
 </ol>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200308213613.png" alt=""><br>启动项目会自动生成表tb2_user</p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200308213939.png" alt=""></p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200308213746.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408112211.png" alt=""><br>启动项目会自动生成表tb2_user</p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408112235.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408112251.png" alt=""></p>
 <p>浏览器输入localhost:8080/user?lastName=zhangsan 添加User对象成功，并查看数据库表</p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200308214204.png" alt=""></p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200308214218.png" alt=""></p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200308215016.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408112318.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408112334.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408112346.png" alt=""></p>
 <p>最后浏览器输入localhost:8080/user/1 得到json对象，测试成功</p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200308214538.png" alt=""></p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200308214613.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408112357.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408112407.png" alt=""></p>
 
         </div>
         

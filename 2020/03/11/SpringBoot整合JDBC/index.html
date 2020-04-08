@@ -148,7 +148,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    2 minutes 读完 (大约 312 个字)
+                    2 minutes 读完 (大约 320 个字)
                 </span>
                 
                 
@@ -174,7 +174,7 @@ var _hmt = _hmt || [];
 <p>配置数据库连接</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  datasource:</span><br><span class="line">    url: jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;test_jdbc?serverTimezone&#x3D;UTC</span><br><span class="line">    username: root</span><br><span class="line">    password: root</span><br><span class="line">    driver-class-name: com.mysql.jdbc.Driver</span><br></pre></td></tr></table></figure>
 <p>新建表tb_user，添加一条数据</p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200310132107.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408125132.png" alt=""></p>
 <p>新建实体类User</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">public class User &#123;</span><br><span class="line">    private Integer id;</span><br><span class="line"></span><br><span class="line">    private String lastName;</span><br><span class="line"></span><br><span class="line">    private String email;</span><br><span class="line"></span><br><span class="line">    public Integer getId() &#123;</span><br><span class="line">        return id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setId(Integer id) &#123;</span><br><span class="line">        this.id &#x3D; id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String getLastName() &#123;</span><br><span class="line">        return lastName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setLastName(String lastName) &#123;</span><br><span class="line">        this.lastName &#x3D; lastName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String getEmail() &#123;</span><br><span class="line">        return email;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setEmail(String email) &#123;</span><br><span class="line">        this.email &#x3D; email;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -184,7 +184,7 @@ var _hmt = _hmt || [];
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@RestController</span><br><span class="line">public class Usercontroller &#123;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    UserDao userDao;</span><br><span class="line"></span><br><span class="line">    @GetMapping(&quot;&#x2F;user&quot;)</span><br><span class="line">    public List&lt;Map&lt;String, Object&gt;&gt; insertUser() &#123;</span><br><span class="line">        List&lt;Map&lt;String, Object&gt;&gt; list &#x3D; userDao.selectUser();</span><br><span class="line">        return list;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>启动项目，浏览器输入localhost:8080/user，得到数据，整合成功</p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200310183341.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408125149.png" alt=""></p>
 
         </div>
         

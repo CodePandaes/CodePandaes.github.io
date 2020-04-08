@@ -148,7 +148,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    4 minutes 读完 (大约 640 个字)
+                    4 minutes 读完 (大约 658 个字)
                 </span>
                 
                 
@@ -169,6 +169,7 @@ var _hmt = _hmt || [];
             <p>好用的模板引擎thymeleaf</p>
 <a id="more"></a>
 
+<hr>
 <h2 id="thymeleaf简介"><a href="#thymeleaf简介" class="headerlink" title="thymeleaf简介"></a>thymeleaf简介</h2><p>Spring Boot提供了多种模板引擎的默认配置支持，但嵌入式容器JSP有限制，2010年后Velocity停止更新，所以这JSP与Velocity两个不建议使用。而Thymeleaf与SpringMVC的视图技术，及SpringBoot的自动化配置集成非常完美，几乎没有任何成本，你只用关注Thymeleaf的语法即可。</p>
 <h2 id="Thymeleaf的特点"><a href="#Thymeleaf的特点" class="headerlink" title="Thymeleaf的特点"></a>Thymeleaf的特点</h2><ul>
 <li>动静结合：Thymeleaf 在有网络和无网络的环境下皆可运行，即它可以让美工在浏览器查看页面的静态效果，也可以让程序员在服务器查看带数据的动态页面效果。这是由于它支持 html 原型，然后在 html 标签里增加额外的属性来达到模板+数据的展示方式。浏览器解释 html 时会忽略未定义的标签属性，所以 thymeleaf 的模板可以静态地运行；当有数据返回到页面时，Thymeleaf 标签会动态地替换掉静态内容，使页面动态显示。</li>
@@ -180,21 +181,20 @@ var _hmt = _hmt || [];
 <li><p>新建SpringBoot项目（可参考我的上一篇博客<a href="https://www.jianshu.com/p/84b4459060a1">SpringBoot初体验</a>），打开pom.xml，添加thymeleaf依赖</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">        &lt;!--web容器--&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-starter-web&lt;&#x2F;artifactId&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!--前端模板thymeleaf依赖--&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;&#x2F;artifactId&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;&#x2F;dependencies&gt;</span><br></pre></td></tr></table></figure></li>
 <li><p>打开配置文件application,yml（application.properties），关闭thymeleaf缓存</p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200308173720.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408111632.png" alt=""></p>
 </li>
 <li><p>新建HelloWorldController类，返回hello页面</p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200308173946.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408111650.png" alt=""></p>
 </li>
 <li><p>templates目录下新建hello.html</p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200308174310.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408111705.png" alt=""></p>
 </li>
 <li><p>打开SpringBootThymeleafApplication类启动项目</p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408111734.png" alt=""></p>
 </li>
-</ol>
-<p>​       <img src="/images/QQ%E6%88%AA%E5%9B%BE20200308174443.png" alt=""></p>
-<p>​       <img src="/images/QQ%E6%88%AA%E5%9B%BE20200308174800.png" alt=""></p>
-<ol start="6">
-<li>浏览器中输入localhost:8080/hello，访问成功</li>
+<li><p>浏览器中输入localhost:8080/hello，访问成功</p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408111817.png" alt=""></p>
+</li>
 </ol>
 
         </div>

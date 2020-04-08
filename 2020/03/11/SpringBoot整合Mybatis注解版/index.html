@@ -148,7 +148,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    6 minutes 读完 (大约 972 个字)
+                    7 minutes 读完 (大约 992 个字)
                 </span>
                 
                 
@@ -170,11 +170,11 @@ var _hmt = _hmt || [];
 <a id="more"></a>
 
 <h2 id="项目准备"><a href="#项目准备" class="headerlink" title="项目准备"></a>项目准备</h2><p>首先新建一个SpringBoot的web项目，选择Spring Initializr（用来初始化一个Spring boot 的项目）</p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200309153257.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408120009.png" alt=""></p>
 <p>然后填写项目坐标，自行修改</p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200309153442.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408120026.png" alt=""></p>
 <p>最后选择要添加的组件web，Mybatis，mysql新建成功</p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200309153559.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408120054.png" alt=""></p>
 <hr>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>打开pom.xml文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"> &lt;dependency&gt;</span><br><span class="line">     &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">     &lt;artifactId&gt;spring-boot-starter-web&lt;&#x2F;artifactId&gt;</span><br><span class="line"> &lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;!--mybatis依赖--&gt;</span><br><span class="line"> &lt;dependency&gt;</span><br><span class="line">     &lt;groupId&gt;org.mybatis.spring.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">     &lt;artifactId&gt;mybatis-spring-boot-starter&lt;&#x2F;artifactId&gt;</span><br><span class="line">     &lt;version&gt;2.1.1&lt;&#x2F;version&gt;</span><br><span class="line"> &lt;&#x2F;dependency&gt;</span><br><span class="line">  &lt;!--添加druid依赖--&gt;</span><br><span class="line"> &lt;dependency&gt;</span><br><span class="line">     &lt;groupId&gt;com.alibaba&lt;&#x2F;groupId&gt;</span><br><span class="line">     &lt;artifactId&gt;druid&lt;&#x2F;artifactId&gt;</span><br><span class="line">     &lt;version&gt;1.1.16&lt;&#x2F;version&gt;</span><br><span class="line"> &lt;&#x2F;dependency&gt;</span><br><span class="line"> &lt;!--导入log4j，因为driud添加的拓展插件为log4j--&gt;</span><br><span class="line"> &lt;dependency&gt;</span><br><span class="line">     &lt;groupId&gt;log4j&lt;&#x2F;groupId&gt;</span><br><span class="line">     &lt;artifactId&gt;log4j&lt;&#x2F;artifactId&gt;</span><br><span class="line">     &lt;version&gt;1.2.17&lt;&#x2F;version&gt;</span><br><span class="line"> &lt;&#x2F;dependency&gt;</span><br><span class="line"> &lt;!--mysql依赖--&gt;</span><br><span class="line"> &lt;dependency&gt;</span><br><span class="line">     &lt;groupId&gt;mysql&lt;&#x2F;groupId&gt;</span><br><span class="line">     &lt;artifactId&gt;mysql-connector-java&lt;&#x2F;artifactId&gt;</span><br><span class="line">     &lt;scope&gt;runtime&lt;&#x2F;scope&gt;</span><br><span class="line"> &lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
@@ -194,9 +194,9 @@ var _hmt = _hmt || [];
 <p>添加DeptController类</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">@RestController</span><br><span class="line">public class DeptController &#123;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    private DepartmentMapper departmentMapper;</span><br><span class="line"></span><br><span class="line">    @GetMapping(&quot;&#x2F;dept&#x2F;&#123;id&#125;&quot;)</span><br><span class="line">    public Department getDepartment(@PathVariable(&quot;id&quot;) Integer id) &#123;</span><br><span class="line">        return departmentMapper.getDeptById(id);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @GetMapping(&quot;&#x2F;insert&quot;)</span><br><span class="line">    public Department insertDept(Department department) &#123;</span><br><span class="line">        departmentMapper.insertDept(department);</span><br><span class="line">        return department;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>启动项目，在浏览器输入localhost：8080/insert?departmentName=huawei，新增数据成功</p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200309163933.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408120112.png" alt=""></p>
 <p>然后再输入localhost:8080/dept/1，获取departmentName=huawei的数据</p>
-<p><img src="/images/QQ%E6%88%AA%E5%9B%BE20200309164208.png" alt=""></p>
+<p><img src="https://gitee.com/codepandaes/pictureBedOne/raw/master/img/20200408120133.png" alt=""></p>
 <p>至此整合成功</p>
 
         </div>
